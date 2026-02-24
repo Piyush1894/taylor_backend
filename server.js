@@ -105,9 +105,6 @@ connectDB().then(() => {
 🚀 ─────────────────────────────────────────────────────
    Tailor Management Backend
    Port    : ${PORT}
-   Env     : ${process.env.NODE_ENV || 'development'}
-   API     : http://localhost:${PORT}/api
-   Health  : http://localhost:${PORT}/health
 ─────────────────────────────────────────────────────────
     `);
     });
