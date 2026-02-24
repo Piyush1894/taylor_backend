@@ -24,7 +24,7 @@ const server = http.createServer(app);
 // ─── Socket.io Setup ──────────────────────────────────────────────────────────
 const io = new Server(server, {
     cors: {
-        origin: 'https://taylor-frontend-phi.vercel.app/',
+        origin: 'https://taylor-frontend-phi.vercel.app',
         credentials: true,
     },
     pingTimeout: 60000,
@@ -41,7 +41,7 @@ app.set('io', io);
 // ─── Middleware ───────────────────────────────────────────────────────────────
 app.use(cors(
     {
-        origin: 'https://taylor-frontend-phi.vercel.app/',
+        origin: 'https://taylor-frontend-phi.vercel.app',
         credentials: true,
     },
 ));
