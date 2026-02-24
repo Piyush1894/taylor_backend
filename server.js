@@ -24,7 +24,7 @@ const server = http.createServer(app);
 // ─── Socket.io Setup ──────────────────────────────────────────────────────────
 const io = new Server(server, {
     cors: {
-        origin: 'https://taylor-frontend-phi.vercel.app/' || '*',
+        origin: 'https://taylor-frontend-phi.vercel.app' || '*',
         methods: ['GET', 'POST'],
         credentials: true,
     },
