@@ -23,10 +23,7 @@ const server = http.createServer(app);
 
 // ─── Socket.io Setup ──────────────────────────────────────────────────────────
 const io = new Server(server, {
-    cors: {
-        origin: 'https://taylor-frontend-phi.vercel.app',
-        credentials: true,
-    },
+    cors: "*",
     pingTimeout: 60000,
     pingInterval: 25000,
 });
@@ -39,12 +36,7 @@ chatHandler(io);
 app.set('io', io);
 
 // ─── Middleware ───────────────────────────────────────────────────────────────
-app.use(cors(
-    {
-        origin: 'https://taylor-frontend-phi.vercel.app',
-        credentials: true,
-    },
-));
+app.use(cors("*"));
 
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
