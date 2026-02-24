@@ -23,9 +23,13 @@ const server = http.createServer(app);
 
 // ─── Socket.io Setup ──────────────────────────────────────────────────────────
 const io = new Server(server, {
-    cors: "*",
-    pingTimeout: 60000,
-    pingInterval: 25000,
+  cors: {
+    origin: 'https://taylor-frontend-phi.vercel.app', // exact match
+    methods: ['GET','POST'],
+    credentials: true
+  },
+  pingTimeout: 60000,
+  pingInterval: 25000,
 });
 
 // Apply socket auth middleware then handlers
@@ -36,7 +40,11 @@ chatHandler(io);
 app.set('io', io);
 
 // ─── Middleware ───────────────────────────────────────────────────────────────
-app.use(cors("*"));
+app.use(cors({
+  origin: 'https://taylor-frontend-phi.vercel.app', // exact match
+  methods: ['GET','POST','PUT','DELETE','OPTIONS'],
+  credentials: true, // required for JWT/cookies
+}));
 
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
